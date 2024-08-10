@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\arnedecker\\OneDrive - Microsoft\\Files\\Repositories\\MicroHack-AppServiceToContainerAppStart\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A337DFD9-585A-49B1-8BEF-24F8146DCF52}|MicroHackApp.csproj|c:\\users\\arnedecker\\onedrive - microsoft\\files\\repositories\\microhack-appservicetocontainerappstart\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A337DFD9-585A-49B1-8BEF-24F8146DCF52}|MicroHackApp.csproj|solutionrelative:pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\arnedecker\\OneDrive - Microsoft\\Files\\Repositories\\MicroHack-AppServiceToContainerAppStart\\Pages\\Index.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Index.cshtml",
+              "ToolTip": "C:\\Users\\arnedecker\\OneDrive - Microsoft\\Files\\Repositories\\MicroHack-AppServiceToContainerAppStart\\Pages\\Index.cshtml",
+              "RelativeToolTip": "Pages\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-10T09:00:03.754Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
