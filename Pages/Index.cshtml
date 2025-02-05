@@ -2,7 +2,7 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
-    var apiUrl = Environment.GetEnvironmentVariable("API_URL") ?? "http://localhost:8000/v1/completions";
+    var apiUrl = Environment.GetEnvironmentVariable("API_URL"); // ?? "https://microhack-aicontainer.gentlehill-804062c8.westeurope.azurecontainerapps.io/api/generate";
 }
 
 <div class="text-center">
@@ -10,6 +10,7 @@
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 
     <p>This line here is the message you are looking for!</p>
+    <p>This is the newest version, freshly deployed from the ACR</p>
 
     <br><br>
     <br><br>
@@ -39,15 +40,14 @@
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    model: "phi",
+                    model: "llama3.2",  // Ensure the correct model is used
                     prompt: userInput,
-                    max_tokens: 50,
-                    temperature: 0.7
+                    stream: false  // Disable streaming to get a full response
                 })
             });
 
             const data = await response.json();
-            outputField.value = data.choices ? data.choices[0].text : "No response from API";
+            outputField.value = data.response ? data.response : "No response from API";
         } catch (error) {
             outputField.value = "Error: " + error.message;
         }
