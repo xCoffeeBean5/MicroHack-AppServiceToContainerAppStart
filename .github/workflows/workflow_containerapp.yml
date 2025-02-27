@@ -6,6 +6,9 @@ name: Build and Deploy to Container App
 on:
   workflow_dispatch:
 
+permissions:
+  id-token: write
+
 jobs:
 
   build:
@@ -13,6 +16,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    
+    - name: Login to Azure
+      uses: azure/login@v2
+      with:
+        client-id: ${{ secrets.AZURE_CLIENT_ID }}
+        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+    
     - name: Checkout repository
       uses: actions/checkout@v4
       
@@ -32,3 +43,14 @@ jobs:
         az acr login --name microhackregistryapp1 --username ${{ secrets.ACR_USERNAME }} --password ${{ secrets.ACR_PASSWORD }} &&
         docker build -t microhackregistryapp1.azurecr.io/microhackapp:1 -f Dockerfile . &&
         docker push microhackregistryapp1.azurecr.io/microhackapp:1
+
+    - name: Deploy to Container App
+      uses: azure/container-apps-deploy-action@v2
+      with:
+        imageToDeploy: microhackregistryapp1.azurecr.io/microhackapp:${{ steps.get_tag.outputs.image_tag }}
+        acrUsername: ${{ secrets.ACR_USERNAME }}
+        acrPassword: ${{ secrets.ACR_PASSWORD }}
+        resourceGroup: MicroHack-AppServiceToContainerApp
+        containerAppEnvironment: microhack-containerappenvironment-in
+        containerAppName: microhack-containerapp-in
+        targetPort: 8080
